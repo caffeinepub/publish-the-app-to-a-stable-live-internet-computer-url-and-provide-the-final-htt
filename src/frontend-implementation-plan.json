@@ -1,0 +1,54 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Mainnet deployment documentation and live URL capture for Internet Computer app",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Enable a repeatable production (mainnet) deployment workflow and a place to record the final stable HTTPS live URL.",
+      "acceptanceCriteria": [
+        "A production/live deployment is performed (not a preview/draft link).",
+        "A stable HTTPS URL for the deployed site is produced and recorded as the live link for the project.",
+        "The live URL opens in a browser without showing an \"Unknown domain\" error (allowing for normal certificate propagation delays)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/LIVE_URL.md",
+          "operation": "create",
+          "description": "Create a single source-of-truth file to record the final stable HTTPS URL after mainnet deployment, including a short checklist to confirm the URL loads and notes about certificate propagation delays."
+        },
+        {
+          "path": "frontend/scripts/deploy-mainnet.sh",
+          "operation": "create",
+          "description": "Add a convenience script that runs the documented mainnet deploy and prints/reminds how to retrieve the canister web URL after deployment. Use the selected github-export-icp-cli component as the reference for deployment workflow conventions (dfx usage, mainnet flags, and URL retrieval patterns). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/scripts/verify-live-url.sh",
+          "operation": "create",
+          "description": "Add an optional verification helper that takes the recorded HTTPS URL and performs a basic availability check (e.g., request and status) and prints guidance if the domain is not yet ready due to certificate propagation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Expand frontend/DEPLOYMENT.md with complete, copy-pastable mainnet deployment and live URL retrieval/verification steps.",
+      "acceptanceCriteria": [
+        "frontend/DEPLOYMENT.md includes end-to-end commands to deploy to mainnet (IC) from a clean environment, including prerequisites, build, deploy, and verification steps.",
+        "DEPLOYMENT.md explicitly documents how to obtain the final live HTTPS URL for the frontend canister after deployment and how to verify it loads.",
+        "DEPLOYMENT.md notes that SSL/certificate propagation can take time and suggests a retry window if the URL initially fails."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/DEPLOYMENT.md",
+          "operation": "modify",
+          "description": "Replace/complete the currently incomplete guide with end-to-end, copy-pastable steps: prerequisites (dfx + identity setup + cycles), clean install/build, mainnet deploy command(s), how to obtain the stable HTTPS URL for the deployed frontend canister, and how to verify it loads in a browser; include explicit notes about certificate propagation and a recommended retry window. Reference the selected github-export-icp-cli component for mainnet deployment conventions and the build-template-react/initial-app components for build command expectations. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/LIVE_URL.md",
+          "operation": "modify",
+          "description": "Add a short section that links back to DEPLOYMENT.md and clarifies exactly what URL to paste here and how to confirm it is the stable mainnet HTTPS URL (not a preview)."
+        }
+      ]
+    }
+  ]
+}

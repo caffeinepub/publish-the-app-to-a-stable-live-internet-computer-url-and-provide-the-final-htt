@@ -1,0 +1,56 @@
+{
+  "kind": "build_request",
+  "title": "Publish the app to a stable live Internet Computer URL and provide the final HTTPS link",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Deploy the existing app as a production (non-preview) Internet Computer deployment and capture the final stable HTTPS URL that users can open in a browser.",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "recent-1"
+        ],
+        "quotes": [
+          "publish now and give"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A production/live deployment is performed (not a preview/draft link).",
+        "A stable HTTPS URL for the deployed site is produced and recorded as the live link for the project.",
+        "The live URL opens in a browser without showing an \"Unknown domain\" error (allowing for normal certificate propagation delays)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update frontend/DEPLOYMENT.md to include complete, copy-pastable steps to deploy to the Internet Computer mainnet and to retrieve/confirm the final live HTTPS URL after deployment.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-1"
+        ],
+        "quotes": [
+          "publish now and give"
+        ]
+      },
+      "acceptanceCriteria": [
+        "frontend/DEPLOYMENT.md includes end-to-end commands to deploy to mainnet (IC) from a clean environment, including prerequisites, build, deploy, and verification steps.",
+        "DEPLOYMENT.md explicitly documents how to obtain the final live HTTPS URL for the frontend canister after deployment and how to verify it loads.",
+        "DEPLOYMENT.md notes that SSL/certificate propagation can take time and suggests a retry window if the URL initially fails."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor in backend/main.mo; do not introduce additional backend services.",
+    "Do not edit files under frontend/src/components/ui or any paths listed as immutable: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "Adding new product features unrelated to publishing/deployment.",
+    "Integrating third-party hosting providers or external databases.",
+    "Changing authentication beyond existing Internet Identity setup."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

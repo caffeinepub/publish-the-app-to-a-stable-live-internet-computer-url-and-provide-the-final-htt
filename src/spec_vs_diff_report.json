@@ -1,0 +1,58 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T22:31:50.087Z",
+  "summary": "The diff adds deployment/verification scripts and a LIVE_URL placeholder file, and modifies frontend/DEPLOYMENT.md, but it does not provide an actual stable production HTTPS URL nor clear evidence of a completed mainnet deployment. The DEPLOYMENT.md content shown is truncated and appears incomplete in the excerpt.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Deploy the existing app as a production (non-preview) Internet Computer deployment and capture the final stable HTTPS URL that users can open in a browser.",
+      "reason": "No stable live HTTPS URL is recorded/provided in the changes, and there is no evidence in the diff summary that an actual mainnet deployment was performed; the newly added LIVE_URL.md has an empty URL section.",
+      "evidence": [
+        "frontend/LIVE_URL.md",
+        "frontend/scripts/deploy-mainnet.sh"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Update frontend/DEPLOYMENT.md to include complete, copy-pastable steps to deploy to the Internet Computer mainnet and to retrieve/confirm the final live HTTPS URL after deployment.",
+      "reason": "Although frontend-file-summaries.txt claims DEPLOYMENT.md is complete, the actual DEPLOYMENT.md content included in the diff is truncated and shows an unfinished section (\"Start from a clean state:\" followed by an empty code block), so complete copy-pastable steps and explicit URL retrieval/verification steps cannot be confirmed from the provided diff evidence.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Added standalone deployment and live URL verification shell scripts (deploy-mainnet.sh, verify-live-url.sh).",
+      "reason": "The BuildRequest asked to update DEPLOYMENT.md and provide the final live HTTPS link; it did not request adding automation scripts.",
+      "evidence": [
+        "frontend/scripts/deploy-mainnet.sh",
+        "frontend/scripts/verify-live-url.sh"
+      ]
+    },
+    {
+      "description": "Added a separate LIVE_URL.md file to record the live URL.",
+      "reason": "The BuildRequest required capturing/providing the final stable HTTPS URL but did not request creating an additional documentation file for it (it specifically requested updates to frontend/DEPLOYMENT.md).",
+      "evidence": [
+        "frontend/LIVE_URL.md"
+      ]
+    },
+    {
+      "description": "Modified/added project tracking metadata in project_state.json.",
+      "reason": "Not part of the deployment/publication requirements; no requirement mentions updating project state metadata.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/DEPLOYMENT.md",
+    "frontend/LIVE_URL.md",
+    "frontend/scripts/deploy-mainnet.sh",
+    "frontend/scripts/verify-live-url.sh",
+    "project_state.json"
+  ]
+}

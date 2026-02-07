@@ -1,0 +1,44 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-deploy-the-existing-app-as-a-production-non-preview-internet-computer-deployment-and-capture-the-final-stable-https-url-that-users-can-open-in-a-browser",
+      "featureTitle": "Deploy the existing app as a production (non-preview) Internet Computer deployment and capture the final stable HTTPS URL that users can open in a browser.",
+      "files": [
+        "frontend/LIVE_URL.md",
+        "frontend/scripts/deploy-mainnet.sh",
+        "frontend/scripts/verify-live-url.sh"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-frontend-deployment-md-to-include-complete-copy-pastable-steps-to-deploy-to-the-internet-computer-mainnet-and-to-retrieve-confirm-the-final-live-https-url-after-deployment",
+      "featureTitle": "Update frontend/DEPLOYMENT.md to include complete, copy-pastable steps to deploy to the Internet Computer mainnet and to retrieve/confirm the final live HTTPS URL after deployment.",
+      "files": [
+        "frontend/DEPLOYMENT.md",
+        "frontend/LIVE_URL.md"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

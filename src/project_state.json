@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Project now includes deploying/publishing the app to a stable live domain and providing a live URL to the user.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-deploy-the-existing-app-as-a-production-non-preview-internet-computer-deployment-and-capture-the-final-stable-https-url-that-users-can-open-in-a-browser",
+      "title": "Deploy the existing app as a production (non-preview) Internet Computer deployment and capture the final stable HTTPS URL that users can open in a browser.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-deployment-md-to-include-complete-copy-pastable-steps-to-deploy-to-the-internet-computer-mainnet-and-to-retrieve-confirm-the-final-live-https-url-after-deployment",
+      "title": "Update frontend/DEPLOYMENT.md to include complete, copy-pastable steps to deploy to the Internet Computer mainnet and to retrieve/confirm the final live HTTPS URL after deployment.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Publish/deploy the app to a stable live domain and provide the live URL",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "projectName": "Publish the app to a stable live Internet Computer URL and provide the final HTTPS link",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

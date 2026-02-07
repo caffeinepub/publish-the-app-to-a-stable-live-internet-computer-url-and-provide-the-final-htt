@@ -1,2 +1,3 @@
-# publish-the-app-to-a-stable-live-internet-computer-url-and-provide-the-final-htt
-Exported from Caffeine project: Publish the app to a stable live Internet Computer URL and provide the final HTTPS link
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
